@@ -1,0 +1,44 @@
+.dash{
+	background: #f0f3f5;
+	padding: 2rem;
+}
+
+.certificate{
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+
+}
+
+.certificate{
+
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	background: #fff;
+	border-bottom: 5px solid red;
+}
+.cert_head>h2{
+	font-style: italic;
+	font-style:2rem;
+}
+
+.cert_main>h2{
+	margin-bottom: 16px;
+}
+
+.cert_main>p{
+	margin-bottom: 16px;
+	color: #666;
+}
+.cert_sign>img{
+	width: 150px;
+}
+
+
+.cert_head>h2>mark{
+	background: #fff;
+	color:darkred;
+}
