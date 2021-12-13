@@ -1,9 +1,61 @@
-.dash{
-	background: #f0f3f5;
-	padding: 2rem;
+*{
+	font-family: 'Montserrat', sans-serif;
 }
 
+.dashboard>h2{
+	text-align: center;
+	padding: 1rem;
+	position: static;
+
+}
+
+.dash{
+
+	display: grid;
+	grid-template-columns:6fr 4fr;
+	
+
+
+}
+
+@media(max-width: 360px){
+	.dash{
+
+		display: flex;
+		flex-direction: column;
+		background: #f0f3f5;
+
+
+	}
+}
+
+.cert_flex{
+	display: flex;
+	flex-direction:column;
+	border: 2px solid #ccc;
+	padding: 2rem;
+	background: #f0f3f5;
+}
+
+.cert_flex>button{
+	padding: 0.5rem 2rem 0.5rem 2rem;
+	font-size: 1rem;
+	font-weight: bolder;
+	background: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: 0;
+	border: 0;
+
+}
+.cert_flex>button:hover{
+	background: #2e81f5;
+	color: #fff;
+}
 .certificate{
+
+	height:48ch;
+	width: 80ch;
 	display: flex;
 	flex-direction: column;
 	align-self: flex-start;
@@ -16,20 +68,21 @@
 	justify-content: space-around;
 	text-align: center;
 	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
+	
 	background: #fff;
 	border-bottom: 5px solid red;
 }
 .cert_head>h2{
 	font-style: italic;
-	font-style:2rem;
 }
 
 .cert_main>h2{
-	margin-bottom: 16px;
+	margin-bottom:2ch;
 }
 
+
 .cert_main>p{
+
 	margin-bottom: 16px;
 	color: #666;
 }
@@ -41,4 +94,42 @@
 .cert_head>h2>mark{
 	background: #fff;
 	color:darkred;
+}
+
+/**************temp_grid *****/
+
+.temp_grid{
+	
+	height: 80vh;
+	border: 2px solid #ccc;
+	display: flex;
+	flex-direction: column;
+
+
+}
+.temp_grid>input{
+	margin-bottom: 10px;
+	padding: 1rem;
+	font-weight: 600;
+}
+.temp_grid_comp{
+	height:150px;
+	background: #786;
+	margin-bottom: 2rem;
+	cursor: pointer;
+}
+
+.stu_list{
+	height: 40vh;
+	overflow-y: scroll;
+}
+
+.stu_list_comp{
+	display: flex;
+	flex-direction: column;
+	background: #f0f3f5;
+	margin-bottom: 16px;
+	padding: 16px;
+	font-size:0.8rem;
+	justify-content: space-between;
 }
