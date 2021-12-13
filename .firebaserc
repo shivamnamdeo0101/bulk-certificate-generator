@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "bulk-certificate-generator",
+    "bulk-certificate-generator": "bulk-certificate-generator"
+  },
+  "targets": {}
+}

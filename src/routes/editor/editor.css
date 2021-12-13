@@ -1,0 +1,143 @@
+.editor{
+	background: #f0f3f5;
+}
+.editor_head{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background: rgb(9,9,121);
+	padding:1rem;
+	padding-right: 2rem;
+	padding-left: 2rem;
+	background: linear-gradient(90deg, rgba(9,9,121,1) 7%, rgba(0,151,255,1) 100%);
+
+}
+
+.editor_head>img{
+	width:40px;
+	cursor: pointer;
+}
+
+.editor_head>h2{
+	font-size:1.5rem;
+	color: #fff;
+	font-weight: 600;
+}
+
+
+.editor_grid{
+	
+	display: flex;
+	flex-direction:row;
+	grid-template-columns: 1fr 3fr 6fr ;
+	
+}
+
+.left_div_icon_list{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top:2rem;
+	background:#444;
+	padding:1.5rem;
+}
+.left_div_icon_list>img{
+	width:30px;
+	background:#666;
+	padding:0.8rem;
+	cursor: pointer;
+	margin-bottom: 2rem;
+}
+.left_div_icon_list>img:hover{
+	background: #777;
+}
+
+.middle_div_icon_list{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top:2rem;
+	background:#222;
+	padding:1.5rem;
+	height: 100vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.middle_div_icon_list>img{
+	max-width: 20vw;
+	margin-bottom: 2rem;
+	cursor: pointer;
+	outline: 0;
+
+}
+
+.border_black{
+	border: 5px solid #0000;
+}
+
+.border_blue{
+	border: 5px solid #2e81f5;
+}
+
+.editor_white_board{
+	margin: 2rem;
+	width: 80ch;
+	height: 48ch;
+	background: #fff;
+	box-shadow: -8px -1px 79px 0px rgba(0,0,0,0.51);
+	-webkit-box-shadow: -8px -1px 79px 0px rgba(0,0,0,0.51);
+	-moz-box-shadow: -8px -1px 79px 0px rgba(0,0,0,0.51);
+}
+
+.upload_input{
+	display: flex;
+	flex-direction: column;
+	font-size: 0.8rem;
+	color: #fff;
+}
+.upload_input>input[type="file"]{
+}
+.upload_input>input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.upload_input>label{
+	margin-bottom: 10px;
+}
+.upload_input>input::before {
+  content: 'Choose Excel File';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  
+  cursor: pointer;
+  font-weight: 700;
+  
+}
+.upload_input>input:hover::before {
+  border-color:#444;
+}
+.upload_input>input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.stu_list{
+
+	height:100vh;
+	color: #fff;
+	font-size: 10pt;
+	margin-top: 16px;
+}
+
+.stu_list_comp{
+	max-width: 20vw;
+	background: #444;
+	margin-bottom: 16px;
+	padding: 5px 8px;
+	cursor: pointer;
+}

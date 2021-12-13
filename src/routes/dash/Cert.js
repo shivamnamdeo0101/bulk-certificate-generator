@@ -9,7 +9,6 @@ function Cert() {
 	const [sign, set_sign] = useState("./sign.PNG");
 	const [name, set_name] = useState("Student Name");
 	const [loading, set_loading] = useState(false);
-
 	const [stu_list, set_stu_list] = useState([]);
 
 

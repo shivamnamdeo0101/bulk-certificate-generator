@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Dash from "./routes/dash/Dash";
+import Editor from "./routes/editor/Editor";
 
 function App() {
   return (
     <div className="App">
-      <Dash />
+      <Editor />
     </div>
   );
 }
