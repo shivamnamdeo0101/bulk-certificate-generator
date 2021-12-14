@@ -1,11 +1,13 @@
 .editor{
 	background: #f0f3f5;
+
 }
 .editor_head{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+
 	background: rgb(9,9,121);
 	padding:1rem;
 	padding-right: 2rem;
@@ -40,10 +42,10 @@
 	align-items: center;
 	padding-top:2rem;
 	background:#444;
-	padding:1.5rem;
+	padding:1rem;
 }
 .left_div_icon_list>img{
-	width:30px;
+	width:20px;
 	background:#666;
 	padding:0.8rem;
 	cursor: pointer;
@@ -54,19 +56,21 @@
 }
 
 .middle_div_icon_list{
+	width: 30vw;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding-top:2rem;
 	background:#222;
 	padding:1.5rem;
-	height: 100vh;
+	
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
 .middle_div_icon_list>img{
-	max-width: 20vw;
+	width: 100%;
 	margin-bottom: 2rem;
 	cursor: pointer;
 	outline: 0;
@@ -84,7 +88,7 @@
 .editor_white_board{
 	margin: 2rem;
 	width: 80ch;
-	height: 48ch;
+	height: 40ch;
 	background: #fff;
 	box-shadow: -8px -1px 79px 0px rgba(0,0,0,0.51);
 	-webkit-box-shadow: -8px -1px 79px 0px rgba(0,0,0,0.51);
@@ -97,17 +101,12 @@
 	font-size: 0.8rem;
 	color: #fff;
 }
-.upload_input>input[type="file"]{
-}
-.upload_input>input::-webkit-file-upload-button {
-  visibility: hidden;
-}
+
 .upload_input>label{
 	margin-bottom: 10px;
 }
 .upload_input>input::before {
-  content: 'Choose Excel File';
-  display: inline-block;
+  
   background: linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
   border-radius: 3px;
@@ -127,17 +126,69 @@
 }
 
 .stu_list{
-
-	height:100vh;
 	color: #fff;
 	font-size: 10pt;
 	margin-top: 16px;
 }
 
 .stu_list_comp{
-	max-width: 20vw;
+	word-break: break-all;
 	background: #444;
 	margin-bottom: 16px;
 	padding: 5px 8px;
 	cursor: pointer;
 }
+
+.input_comp{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+.input_comp>label{
+	
+}
+
+.input_comp>input{
+	margin-top: 10px;
+	padding: 5px 8px;
+}
+
+
+
+.certificate{
+
+	height: 100%;
+	width: 100%;
+	border: 5px solid darkred;
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	flex-direction: column;
+	
+	background: #fff;
+	border-bottom: 5px solid red;
+}
+.cert_head>h2{
+	font-style: italic;
+}
+
+.cert_main>h2{
+}
+
+
+.cert_main>p{
+	color: #666;
+}
+.cert_sign>img{
+	width: 150px;
+}
+
+
+.cert_head>h2>mark{
+	background: #fff;
+	color:darkred;
+}
+
