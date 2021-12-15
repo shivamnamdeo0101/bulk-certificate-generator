@@ -6,7 +6,18 @@ import download from "../../assets/download.png";
 import temp from "../../assets/temp.png";
 import sheet from "../../assets/sheet.png";
 import edit from "../../assets/edit.png";
+import view from "../../assets/view.png";
+
 import email from "../../assets/email.png";
+import sign_img from "../../assets/sign.png";
+
+
+
+import t1 from "../../assets/t1.PNG";
+import t2 from "../../assets/t2.PNG";
+import t3 from "../../assets/t3.PNG";
+
+
 
 
 
@@ -21,8 +32,12 @@ function Editor() {
 	const [tmp_id, set_tmp_id] = useState("1");
 	const [menu, set_menu] = useState("temp");
 	const [loading, set_loading] = useState(false);
-	const [stu_list, set_stu_list] = useState([]);
-	const [sign, set_sign] = useState("./sign.PNG");
+	const [stu_list, set_stu_list] = useState([{
+		"f_name":"Shivam",
+		"l_name":"Namdeo",
+		"email":"shivamnamdeo0101@gmail.com"
+	}]);
+	const [sign, set_sign] = useState(sign_img);
 	const [name, set_name] = useState("Student Name");
 
 	const [data, set_data] = useState({
@@ -76,11 +91,15 @@ function Editor() {
 		    const imgData = canvas.toDataURL("image/png");
 		    const pdf = new jsPDF({
 	          orientation: 'landscape',
+
 	        });
 	        const imgProps= pdf.getImageProperties(imgData);
 	        const pdfWidth = pdf.internal.pageSize.getWidth();
 	        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-	        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+	       // pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+	        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, undefined,'FAST');
+	        console.log(imgData);
+
 	        pdf.save(name+'_certificate.pdf');
 		})
 	}
@@ -100,9 +119,14 @@ function Editor() {
 		<div className="editor">
 				
 			<div className="editor_head">
-				<img src={cert} alt="" />
-				<h2>Bulk Certificate Generator</h2>
-				<img src={download} alt="" onClick={()=>Download()} />
+				<div className="editor_head_comp">
+					<img src={cert} alt="" />
+					<h2>Bulk Certificate Generator</h2>
+				</div>
+				<div className="editor_head_comp">
+					<a onClick={()=>window.open("https://forms.gle/zXJz1KsxNpiRpeMf7","blank")}>Submit a Review or Feedback</a>
+					<img src={download} alt="" onClick={()=>Download()} />
+				</div>
 			</div>
 
 			<div className="editor_grid">
@@ -112,7 +136,7 @@ function Editor() {
 					<img src={temp} alt="" onClick={()=>set_menu("temp")} />
 					<img src={sheet} alt="" onClick={()=>set_menu("sheet")}/>
 					<img src={edit} alt="" onClick={()=>set_menu("edit")}/>
-					<img src={email} alt="" onClick={()=>set_menu("email")}/>
+					<img src={view} alt="" onClick={()=>set_menu("view")}/>
 
 				</div>
 
@@ -120,10 +144,9 @@ function Editor() {
 					menu == "temp" &&
 					<div className="middle_div_icon_list">	
 
-						<img onClick={()=>set_tmp_id("1")} className={tmp_id == 1 ? "border_blue" : "border_black"} src="https://static.vecteezy.com/system/resources/previews/003/144/724/non_2x/creative-modern-certificate-template-design-free-vector.jpg" alt=""/>
-						<img onClick={()=>set_tmp_id("2")} className={tmp_id == 2 ? "border_blue" : "border_black"}src="https://www.creativefabrica.com/wp-content/uploads/2020/07/04/Modern-certificate-of-appreciation-Graphics-4542129-1-1-580x387.jpg" alt=""/>
-						<img onClick={()=>set_tmp_id("3")} className={tmp_id == 3 ? "border_blue" : "border_black"}src="https://image.freepik.com/free-vector/gradient-modern-certificate-template_52683-65506.jpg" alt="" />
-						<img onClick={()=>set_tmp_id("4")} className={tmp_id == 4 ? "border_blue" : "border_black"}src="https://image.freepik.com/free-vector/gradient-modern-certificate-template_52683-65506.jpg" alt="" />
+						<img onClick={()=>set_tmp_id("0")} className={tmp_id == 0 ? "border_blue" : "border_black"} src={t1} alt=""/>
+						<img onClick={()=>set_tmp_id("1")} className={tmp_id == 1 ? "border_blue" : "border_black"}src={t2} alt=""/>
+						<img onClick={()=>set_tmp_id("2")} className={tmp_id == 2 ? "border_blue" : "border_black"}src={t3} alt="" />
 					</div>
 				}
 				{
@@ -159,7 +182,11 @@ function Editor() {
 					<div className="middle_div_icon_list">	
 
 						<div className="input_comp upload_input">	
+
 							<label for="upload">Select Excel File:</label>
+							<label for="upload">Excel file must the having column name as : <mark>"f_name"</mark> = First Name 
+												<mark>"l_name"</mark> = Last Name and <mark>"email"</mark> = Email
+							</label>
 					    	<input type="file" name="upload" id="accept"accept="xlsx/*" onChange={readUploadFile} />
 						</div>	
 
@@ -183,31 +210,76 @@ function Editor() {
 					</div>
 				}
 
+				{
+					menu == "view" &&
+					<div className="middle_div_icon_list">	
+						<div className="editor_head_comp" onClick={()=>Download()}>
+							<p>Download Certificate</p>
+							<img src={download} alt="" />
+						</div>
+					</div>
+				}
+
 				
 
 				<div className="editor_white_board">
-					<div className="certificate" id="content">
-					
-					<div className="cert_head">
-						<h2>{data.heading1}</h2>
-						<h1>Certificate Of Completion</h1>
-
-					</div>
-
-					<div className="cert_main">
-						<p>{data.heading2}</p>
-						<h2>{name}</h2>
-						<p>{data.subheading} </p>
-						
-					</div>
-
-					<div className="cert_sign">
-						<img src={sign} alt="" />
-						<p>{data.head_name}</p>
-					</div>
-
-					
-				</div>
+					{
+						tmp_id == "0" &&
+						<div className="certificate"  id="content">
+						<div className="cert_head">
+							<h2>{data.heading1}</h2>
+							<h1>Certificate Of Completion</h1>
+						</div>
+						<div className="cert_main">
+							<p>{data.heading2}</p>
+							<h2>{name}</h2>
+							<p>{data.subheading} </p>
+							
+						</div>
+						<div className="cert_sign">
+							<img src={sign} alt="" />
+							<p>{data.head_name}</p>
+						</div>
+						</div>
+					}
+					{
+						tmp_id == "1" &&
+						<div className="certificate1"  id="content">
+						<div className="cert_head1">
+							<h2>{data.heading1}</h2>
+							<h1>Certificate Of Completion</h1>
+						</div>
+						<div className="cert_main1">
+							<p>{data.heading2}</p>
+							<h2>{name}</h2>
+							<p>{data.subheading} </p>
+							
+						</div>
+						<div className="cert_sign1">
+							<img src={sign} alt="" />
+							<p>{data.head_name}</p>
+						</div>
+						</div>
+					}
+					{
+						tmp_id == "2" &&
+						<div className="certificate2"  id="content">
+						<div className="cert_head2">
+							<h2>{data.heading1}</h2>
+							<h1>Certificate Of Completion</h1>
+						</div>
+						<div className="cert_main2">
+							<p>{data.heading2}</p>
+							<h2>{name}</h2>
+							<p>{data.subheading} </p>
+							
+						</div>
+						<div className="cert_sign2">
+							<img src={sign} alt="" />
+							<p>{data.head_name}</p>
+						</div>
+						</div>
+					}
 				</div>
 
 			</div>
